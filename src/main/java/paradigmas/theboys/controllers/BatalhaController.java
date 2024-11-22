@@ -1,6 +1,5 @@
 package paradigmas.theboys.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import paradigmas.theboys.dto.BatalhaDTO;
@@ -12,8 +11,11 @@ import java.util.List;
 @RequestMapping("/batalha")
 public class BatalhaController {
 
-    @Autowired
-    private BatalhaService batalhaService;
+    private final BatalhaService batalhaService;
+
+    public BatalhaController(BatalhaService batalhaService) {
+        this.batalhaService = batalhaService;
+    }
 
     @PostMapping
     public ResponseEntity<BatalhaDTO> realizarBatalha(@RequestParam Integer heroi1Id, @RequestParam Integer heroi2Id) {

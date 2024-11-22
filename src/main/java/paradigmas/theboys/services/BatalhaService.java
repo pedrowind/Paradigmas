@@ -1,6 +1,5 @@
 package paradigmas.theboys.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import paradigmas.theboys.dto.BatalhaDTO;
@@ -11,14 +10,18 @@ import paradigmas.theboys.repositories.HeroiRepository;
 
 import java.util.List;
 
+
 @Service
 public class BatalhaService {
 
-    @Autowired
-    private HeroiRepository heroiRepository;
+    private final HeroiRepository heroiRepository;
+    private final BatalhaRepository batalhaRepository;
 
-    @Autowired
-    private BatalhaRepository batalhaRepository;
+
+    public BatalhaService(HeroiRepository heroiRepository, BatalhaRepository batalhaRepository) {
+        this.heroiRepository = heroiRepository;
+        this.batalhaRepository = batalhaRepository;
+    }
 
     @Transactional
     public BatalhaDTO realizarBatalha(Integer heroi1Id, Integer heroi2Id) {
@@ -50,7 +53,6 @@ public class BatalhaService {
         Batalha batalha = new Batalha(heroi1, heroi2, resultado, heroi1.getVida(), heroi2.getVida());
         batalhaRepository.save(batalha);
 
-        // Retornar DTO
         return new BatalhaDTO(batalha);
     }
 
