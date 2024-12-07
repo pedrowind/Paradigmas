@@ -3,24 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/src/main/static/css/selecaoLocalMain.css">
+    <link rel="import" href="component.html">
+    <title>Seleção</title>
 </head>
 <body>
     <header>
-
+        <h1>Seleção de Mapa</h1>
     </header>
     <main>
-
+        <!-- Imagem grande -->
         <div class="bigImg">
-            <img src="" alt="">
+            <img src="/src/main/static/img/Locais/CageMansion.jpg" alt="Imagem Grande">
         </div>
+        
+        <!-- Nome do mapa -->
+        <div class="map-name">Selecione um mapa</div>
+        
+        <!-- Seleção de imagens -->
         <div class="selecao">
-
+            <img src="/src/main/static/img/Locais/CageMansion.jpg" alt="Cage Mansion">
+            <img src="/src/main/static/img/Locais/Khaoseum.jpg" alt="Khaoseum">
+            <img src="/src/main/static/img/Locais/LivingForestMK1.jpg" alt="Living Forest">
+            <img src="/src/main/static/img/Locais/Sun_Do.jpg" alt="Sun Do">
+            <img src="/src/main/static/img/Locais/TheFireTemple.jpg" alt="The Fire Temple">
+            <img src="/src/main/static/img/Locais/TheTeaHouse.jpg" alt="The Tea House">
+            <img src="/src/main/static/img/Locais/YingFortress.jpg" alt="Ying Fortress">
+            <img src="/src/main/static/img/Locais/CorruptedForest.webp" alt="Corrupted Forest">
+            <img src="/src/main/static/img/Locais/The_Hourglass.webp" alt="The Hourglass">
+            <img src="/src/main/static/img/Locais/Shang Tsung's Laboratory.webp" alt="Shang Tsung's Laboratory">
         </div>
-
     </main>
-    <footer>
 
-    </footer>
+    <script>
+        // Seleciona a imagem grande, o nome do mapa e todas as miniaturas
+        const bigImage = document.querySelector('.bigImg img');
+        const mapName = document.querySelector('.map-name');
+        const thumbnails = document.querySelectorAll('.selecao img');
+
+        // Adiciona evento de clique às miniaturas
+        thumbnails.forEach((thumbnail) => {
+            thumbnail.addEventListener('click', () => {
+                // Atualiza a imagem grande
+                bigImage.src = thumbnail.src;
+                bigImage.alt = thumbnail.alt;
+
+                // Atualiza o nome do mapa
+                mapName.textContent = thumbnail.alt;
+
+                // Remove a classe "selected" de todas as miniaturas
+                thumbnails.forEach((thumb) => thumb.classList.remove('selected'));
+
+                // Adiciona a classe "selected" à miniatura clicada
+                thumbnail.classList.add('selected');
+            });
+        });
+    </script>
 </body>
 </html>
