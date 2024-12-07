@@ -11,10 +11,16 @@ public class Heroi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer heroiId;
+
     private String nome;
     private Integer idade;
     private String sexo;
     private String caracteristicasFisicas;
+    private Integer vida;
+    private Integer energia;
+    private Integer ataque;
+    private Integer defesa;
+
 
     @Column(columnDefinition = "TEXT")
     private String poderes;
@@ -30,7 +36,8 @@ public class Heroi {
     public Heroi() {}
 
     public Heroi(Integer heroiId, String nome, String historicoBatalhas, String status, Integer popularidade, Integer idade,
-                 String sexo, String caracteristicasFisicas, String poderes, Integer forca) {
+                 String sexo, String caracteristicasFisicas, String poderes, Integer forca,
+                 Integer vida, Integer energia, Integer ataque, Integer defesa) {
         this.heroiId = heroiId;
         this.nome = nome;
         this.historicoBatalhas = historicoBatalhas;
@@ -41,6 +48,10 @@ public class Heroi {
         this.caracteristicasFisicas = caracteristicasFisicas;
         this.poderes = poderes;
         this.forca = forca;
+        this.vida = vida;
+        this.energia = energia;
+        this.ataque = ataque;
+        this.defesa = defesa;
     }
 
     public Integer getHeroiId() {
@@ -121,6 +132,38 @@ public class Heroi {
 
     public void setIdade(Integer idade) {
         this.idade = idade;
+    }
+
+    public Integer getVida() {
+        return vida;
+    }
+
+    public void setVida(Integer vida) {
+        this.vida = vida;
+    }
+
+    public Integer getEnergia() {
+        return energia;
+    }
+
+    public void setEnergia(Integer energia) {
+        this.energia = energia;
+    }
+
+    public Integer getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(Integer ataque) {
+        this.ataque = ataque;
+    }
+
+    public Integer getDefesa() {
+        return defesa;
+    }
+
+    public void setDefesa(Integer defesa) {
+        this.defesa = defesa;
     }
 
     @Override
