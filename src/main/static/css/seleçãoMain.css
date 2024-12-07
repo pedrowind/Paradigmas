@@ -14,8 +14,9 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90%;
-    height: 90%;
+    
+    width: 95%;
+    height: 100%;
     background-color: #fff;
     border: 2px solid #aaa;
     border-radius: 10px;
@@ -27,6 +28,7 @@ main {
     flex-direction: row;
     width: 95%;
     height: 90%;
+    gap: 10px;
 }
 
 .sidebar {
@@ -35,6 +37,7 @@ main {
     padding: 10px;
     overflow-y: auto;
     border: 2px solid #aaa;
+    border-radius: 8px;
 }
 
 .grid {
@@ -47,20 +50,23 @@ main {
     justify-items: center;
     border: 2px solid #aaa;
     background-color: #fff;
-
 }
 
 .grid img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100px; /* Largura fixa */
+    height: 140px; /* Altura fixa */
+    object-fit: cover; /* Faz o zoom automático para preencher o espaço */
+    object-position: center; /* Centraliza o foco no meio da imagem */
     cursor: pointer;
     border: 2px solid transparent;
-    transition: 0.3s;
+    transition: transform 0.3s, border-color 0.3s;
+    border-radius: 8px;
+
 }
 
 .grid img.selected {
-    border-color: #2600ff;
+    border-color: #2600ff; /* Destaque na borda */
+    transform: scale(1.1); /* Pequeno zoom ao selecionar */
 }
 
 .sidebar h3 {
@@ -75,28 +81,21 @@ main {
 }
 
 .sidebar .character img {
-    width: 250px; /* Tamanho grande para a imagem */
-    height: 250px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 8px;
-    border: 3px solid #333; /* Destaque para a imagem */
+    border: 3px solid #333;
 }
 
 .sidebar .character span {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     text-align: center;
-    text-transform: capitalize; /* Capitaliza o texto */
+    text-transform: capitalize;
 }
 
-.sidebar img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    margin-right: 10px;
-}
-
-.menu{
+.menu {
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -105,8 +104,7 @@ main {
 
 .botoes {
     margin-top: 9px;
-    padding: 1px;
-    background-color: #2600ff;
+    padding: 1px 10px;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -117,11 +115,38 @@ main {
 @media (max-width: 400px) {
     .container {
         flex-direction: column;
+        gap: 15px;
     }
 
     .grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
+    }
+
+    .grid img {
+        max-width: 100px;
+    }
+
+    .sidebar .character img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .sidebar .character span {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid img {
+        max-width: 120px;
     }
 
     .sidebar .character img {
@@ -130,19 +155,17 @@ main {
     }
 
     .sidebar .character span {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
-/* Para telas com largura máxima de 700px */
-@media (max-width: 700px) {
-    .container {
-        flex-direction: column;
+@media (max-width: 1080px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 
-    .grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
+    .grid img {
+        max-width: 140px;
     }
 
     .sidebar .character img {
@@ -151,32 +174,10 @@ main {
     }
 
     .sidebar .character span {
-        font-size: 16px;
-    }
-}
-
-/* Para telas com largura máxima de 1080px */
-@media (max-width: 1080px) {
-    .container {
-        flex-direction: row;
-    }
-
-    .grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto;
-    }
-
-    .sidebar .character img {
-        width: 200px;
-        height: 200px;
-    }
-
-    .sidebar .character span {
         font-size: 18px;
     }
 }
 
-/* Para telas acima de 1440px (opção adicional) */
 @media (min-width: 1440px) {
     main {
         width: 80%;
@@ -184,7 +185,6 @@ main {
 
     .grid {
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: auto;
     }
 
     .sidebar .character img {
