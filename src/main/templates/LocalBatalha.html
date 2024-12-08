@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="import" href="component.html">
     <title>Seleção</title>
 </head>
+
 <body>
     <header>
         <h1>Seleção de Mapa</h1>
@@ -16,10 +18,10 @@
         <div class="bigImg">
             <img src="/src/main/static/img/Locais/CageMansion.jpg" alt="Imagem Grande">
         </div>
-        
+
         <!-- Nome do mapa -->
         <div class="map-name">Selecione um mapa</div>
-        
+
         <!-- Seleção de imagens -->
         <div class="selecao">
             <img src="/src/main/static/img/Locais/CageMansion.jpg" alt="Cage Mansion">
@@ -36,7 +38,6 @@
     </main>
 
     <script>
-        // Seleciona a imagem grande, o nome do mapa e todas as miniaturas
         const bigImage = document.querySelector('.bigImg img');
         const mapName = document.querySelector('.map-name');
         const thumbnails = document.querySelectorAll('.selecao img');
@@ -44,20 +45,41 @@
         // Adiciona evento de clique às miniaturas
         thumbnails.forEach((thumbnail) => {
             thumbnail.addEventListener('click', () => {
-                // Atualiza a imagem grande
+                // Atualiza a imagem grande e o nome do mapa
                 bigImage.src = thumbnail.src;
                 bigImage.alt = thumbnail.alt;
-
-                // Atualiza o nome do mapa
                 mapName.textContent = thumbnail.alt;
 
                 // Remove a classe "selected" de todas as miniaturas
                 thumbnails.forEach((thumb) => thumb.classList.remove('selected'));
-
-                // Adiciona a classe "selected" à miniatura clicada
                 thumbnail.classList.add('selected');
             });
         });
+
+        // Botão para avançar para a página de batalha
+        const btnConfirm = document.createElement('button');
+        btnConfirm.textContent = 'Confirmar Mapa';
+        btnConfirm.style.marginTop = '20px';
+        document.body.appendChild(btnConfirm);
+
+        btnConfirm.addEventListener('click', () => {
+            // Verifica se um mapa foi selecionado
+            if (!bigImage.alt || bigImage.alt === 'Imagem Grande') {
+                alert('Selecione um mapa antes de continuar.');
+                return;
+            }
+
+            // Salva o mapa selecionado no Local Storage
+            const selectedMap = {
+                src: bigImage.src,
+                alt: bigImage.alt
+            };
+            localStorage.setItem('selectedMap', JSON.stringify(selectedMap));
+
+            // Redireciona para a página de batalha
+            window.location.href = '/src/main/templates/Batalha.html';
+        });
     </script>
 </body>
+
 </html>

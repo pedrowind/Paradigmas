@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="/src/main/static/css/seleçãoMain.css">
     <title>Seleção de Personagens</title>
 </head>
+
 <body>
     <header>
         <div class="logoLocal">
@@ -49,7 +51,7 @@
             </div>
         </div>
         <div class="botoes">
-            <button>Pronto</button>
+            <button id="btnPronto">Pronto</button>
         </div>
     </main>
 
@@ -130,7 +132,7 @@
             }
         }
 
-// Cria o elemento de personagem para exibir na barra lateral
+        // Cria o elemento de personagem para exibir na barra lateral
         function createCharacterElement(character) {
             const characterDiv = document.createElement('div');
             characterDiv.classList.add('character');
@@ -156,8 +158,19 @@
             characterDiv.appendChild(name);
 
             return characterDiv;
-}
+        }
+        document.getElementById('btnPronto').addEventListener('click', () => {
+            if (selectedCharacters.some((char) => char === null)) {
+                alert('Você precisa selecionar 2 personagens antes de continuar.');
+                return;
+            }
+            // Salva os personagens selecionados no Local Storage
+            localStorage.setItem('selectedCharacters', JSON.stringify(selectedCharacters));
+            // Redireciona para a página de seleção de mapa
+            window.location.href = '/src/main/templates/LocalBatalha.html';
+        });
     </script>
-       
+
 </body>
+
 </html>

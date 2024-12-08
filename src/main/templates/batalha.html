@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha</title>
+    <link rel="stylesheet" href="/src/main/static/css/batalhaMain.css">
+</head>
+
+<body>
+    <header>
+        <h1>Batalha</h1>
+    </header>
+    <section id="battleSection" class="battle-section">
+        <div id="player1" class="player">
+            <img src="" alt="Player 1">
+            <div class="status-bars">
+                <div class="bar health-bar"></div>
+                <div class="bar rage-bar"></div>
+            </div>
+            <div class="actions">
+                <button>Ação 1</button>
+                <button>Ação 2</button>
+                <button>Ação 3</button>
+                <button>Ação 4</button>
+            </div>
+        </div>
+        <div id="player2" class="player">
+            <img src="" alt="Player 2">
+            <div class="status-bars">
+                <div class="bar health-bar"></div>
+                <div class="bar rage-bar"></div>
+            </div>
+            <div class="actions">
+                <button>Ação 1</button>
+                <button>Ação 2</button>
+                <button>Ação 3</button>
+                <button>Ação 4</button>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Recupera os dados do Local Storage
+        const selectedCharacters = JSON.parse(localStorage.getItem('selectedCharacters'));
+        const selectedMap = JSON.parse(localStorage.getItem('selectedMap'));
+
+        if (selectedCharacters && selectedMap) {
+            // Define a imagem do mapa como plano de fundo da seção
+            const battleSection = document.getElementById('battleSection');
+            battleSection.style.backgroundImage = `url(${selectedMap.src})`;
+
+            // Exibe os personagens
+            const player1 = document.getElementById('player1');
+            const player2 = document.getElementById('player2');
+
+            player1.querySelector('img').src = selectedCharacters[0].src;
+            player1.querySelector('img').alt = selectedCharacters[0].alt;
+
+            player2.querySelector('img').src = selectedCharacters[1].src;
+            player2.querySelector('img').alt = selectedCharacters[1].alt;
+        }
+    </script>
+</body>
+
+</html>
