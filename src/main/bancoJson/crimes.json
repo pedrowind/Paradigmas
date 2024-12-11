@@ -1,0 +1,12 @@
+{
+    "crimes": [
+      {
+        "nome": "Roubo ao Banco Central",
+        "descricao": "Roubo de grandes quantias em um banco",
+        "data": "2024-12-10",
+        "heroiResponsavel": "Herói Exemplo",
+        "severidade": 9
+      }
+    ]
+  }
+  

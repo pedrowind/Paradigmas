@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/src/main/static/css/header.css" />
     <link rel="stylesheet" href="/src/main/static/css/heroisMain.css" />
     <link rel="stylesheet" href="/src/main/static/css/footer.css" />
+    <link rel="stylesheet" href="/src/main/static/scripts/heroes.js">
     <title>Heróis</title>
   </head>
 
@@ -45,12 +46,11 @@
           <div class="card-bottom">
             <h3>Criar Herói</h3>
 
-            <form id="formCriar" action="" method="post">
+            <form id="formCriar" action="#" method="post">
               <hr />
-
               <label for="nomeCriar">Nome:</label>
               <input required id="nomeCriar" type="text" placeholder="Nome" />
-
+          
               <label for="idadeCriar">Idade:</label>
               <input
                 required
@@ -60,9 +60,9 @@
                 type="number"
                 placeholder="18"
               />
-
+          
               <hr />
-
+          
               <label for="sexoCheckbox">Sexo:</label>
               <div id="sexoCheckbox">
                 <input
@@ -73,9 +73,9 @@
                   id="sexoMasculino"
                 />
                 <label for="sexoMasculino">Masculino</label>
-
+          
                 <br />
-
+          
                 <input
                   required
                   type="radio"
@@ -85,9 +85,9 @@
                 />
                 <label for="sexoFeminino">Feminino</label>
               </div>
-
+          
               <hr />
-
+          
               <label for="poderesCriar">Poderes:</label>
               <input
                 required
@@ -95,7 +95,7 @@
                 type="text"
                 placeholder="Voar, super-força, visão raio-x..."
               />
-
+          
               <label for="caracteristicas">Características físicas:</label>
               <textarea
                 required
@@ -104,9 +104,9 @@
                 rows="4"
                 placeholder="Loiro(a), alto(a), forte..."
               ></textarea>
-
+          
               <hr />
-
+          
               <label for="seletorNivelForca">Nível de força:</label>
               <div id="seletorNivelForca">
                 <input
@@ -116,7 +116,7 @@
                   max="100"
                   oninput="this.nextElementSibling.value = this.value"
                 />
-
+          
                 <input
                   required
                   type="number"
@@ -128,7 +128,7 @@
                   oninput="this.previousElementSibling.value = this.value"
                 />
               </div>
-
+          
               <label for="seletorPopularidade">Popularidade:</label>
               <div id="seletorPopularidade">
                 <input
@@ -138,7 +138,7 @@
                   max="100"
                   oninput="this.nextElementSibling.value = this.value"
                 />
-
+          
                 <input
                   required
                   type="number"
@@ -150,9 +150,9 @@
                   oninput="this.previousElementSibling.value = this.value"
                 />
               </div>
-
+          
               <hr />
-
+          
               <label for="dropdown">Status</label>
               <select required name="" id="dropdown">
                 <option value="">Selecione o status do herói</option>
@@ -160,9 +160,9 @@
                 <option value="2">Inativo</option>
                 <option value="3">Banido</option>
               </select>
-
+          
               <hr />
-
+          
               <button type="submit">Criar</button>
             </form>
           </div>
@@ -331,6 +331,6 @@
       <p>copyrigth &copy; 2024</p>
     </footer>
 
-    <script src="/src/main/static/scripts/heroes.js"></script>
+    <script src="src/main/static/scripts/heroes.js" defer></script>
   </body>
 </html>

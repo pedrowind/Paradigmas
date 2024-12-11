@@ -1,0 +1,16 @@
+{
+    "missoes": [
+      {
+        "nome": "Resgate na Montanha",
+        "descricao": "Salvar alpinistas presos em uma avalanche",
+        "nivelDificuldade": 8,
+        "heroisDesignados": ["Herói Exemplo", "Heroína Valente"],
+        "resultado": "Sucesso",
+        "recompensa": {
+          "forca": 5,
+          "popularidade": 10
+        }
+      }
+    ]
+  }
+  

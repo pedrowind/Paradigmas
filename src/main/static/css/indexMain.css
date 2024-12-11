@@ -2,7 +2,6 @@ body {
     background-color: darkgrey;
 }
 
-
 .containerCards {
     display: flex;
     flex-wrap: wrap;
@@ -27,8 +26,9 @@ body {
 }
 
 .card-image {
-    width: 100%;
-    height: auto;
+    width: 100%; /* A imagem vai ocupar toda a largura do card */
+    height: 200px; /* Definindo uma altura fixa para todas as imagens */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorção */
     display: block;
 }
 
@@ -38,8 +38,9 @@ body {
     font-size: 14px;
     line-height: 1.5;
 }
-.carousel{
-    box-shadow:  0 0 10px #000000;
+
+.carousel {
+    box-shadow: 0 0 10px #000000;
     background-color: black;
     width: 98%;
     justify-content: center;
@@ -50,7 +51,7 @@ body {
 
 .carousel-inner {
     height: 500px; /* Altura fixa para o carrossel */
-    align-items: center; /* Centraliza verticalmente */
+    align-items:center; /* Centraliza verticalmente */
     justify-content: center; /* Centraliza horizontalmente */
 }
 
